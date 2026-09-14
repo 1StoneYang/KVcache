@@ -1,0 +1,157 @@
+{
+  "benchmark": "amber",
+  "config": {
+    "dataset": {
+      "amber_drive_id": "1MaCHgtupcZUjf007anNl4_MV0o4DjXvl",
+      "amber_limit": 0,
+      "amber_repo": "https://github.com/junyangwang0410/AMBER.git",
+      "amber_revision": "534babf6bbfcce2e735c26289dedfb21cef3c939",
+      "chair_repo": "https://github.com/Maxlinn/CHAIR-metric-standalone.git",
+      "chair_revision": "4087a26211aa2339b9a76307cb8f0321ef691d0a",
+      "coco_annotations_url": "http://images.cocodataset.org/annotations/annotations_trainval2014.zip",
+      "coco_images_url": "http://images.cocodataset.org/zips/val2014.zip",
+      "dev_size": 100,
+      "smoke_size": 8,
+      "split_seed": 20260806,
+      "test_size": 500
+    },
+    "decoding": {
+      "max_new_tokens": 512,
+      "prompt": "Please describe the image in detail.",
+      "speculative_method": "none",
+      "strategy": "greedy"
+    },
+    "evaluation": {
+      "amber_python": "python",
+      "chair_python": "python",
+      "length_unit": "words"
+    },
+    "fusion": {
+      "decode": 0.5,
+      "shift": 0.25,
+      "text": 0.25
+    },
+    "implementation_revision": 2,
+    "kvsmooth": {
+      "clip_radius": 0.2,
+      "fifo_size": 15,
+      "first_layer": 3,
+      "lambda_ref": 0.7,
+      "last_layer": 26
+    },
+    "mmshift": {
+      "anchor": 1.0,
+      "cache_budget": 512,
+      "mass_threshold": 0.95,
+      "num_groups": 32,
+      "num_proxies": 512,
+      "variance_gamma": 10.0
+    },
+    "model": {
+      "attn_implementation": "eager",
+      "backend": "transformers_eager",
+      "device": "cuda",
+      "dtype": "bfloat16",
+      "id": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "local_path": "/root/autodl-tmp/model/Qwen2.5-VL-7B",
+      "max_pixels": 401408,
+      "quantization": "bf16",
+      "revision": "local",
+      "trust_remote_code": false
+    },
+    "myopia": {
+      "cache_budget": 512,
+      "text_alpha": 0.5
+    },
+    "paths": {
+      "amber_images": "/root/autodl-tmp/Method/dataset/AMBER/image",
+      "amber_root": "/root/autodl-tmp/Method/dataset/AMBER",
+      "data_root": "data",
+      "lock_file": "/root/autodl-tmp/Method/VLessHallu/VLessHallu/resources.lock.json",
+      "project_name": "ReKV",
+      "run_root": "runs",
+      "selection_lock": "configs/locked_selection.json"
+    },
+    "prunehal": {
+      "force_step": 2,
+      "max_prunes": 4,
+      "retention_ratio": 0.9,
+      "vote_fraction": 0.5
+    },
+    "rekv": {
+      "active_budget": 64,
+      "bin_budget": 64,
+      "budget_step": 8,
+      "current_weight": 0.4,
+      "ema_decay": 0.8,
+      "ema_weight": 0.2,
+      "entropy_high": 0.8,
+      "entropy_low": 0.35,
+      "future_weight": 0.4,
+      "mass_high": 0.4,
+      "mass_low": 0.18,
+      "max_active": 128,
+      "min_active": 16,
+      "probe_layers": [
+        7,
+        14,
+        21
+      ],
+      "window": 8
+    },
+    "schema_version": 1,
+    "seed": 20260806,
+    "selection": {
+      "f1_tolerance_pp": 1.0,
+      "minimum_length_ratio": 0.9
+    },
+    "sweep": {
+      "fusion_weights": [
+        [
+          0.5,
+          0.25,
+          0.25
+        ],
+        [
+          0.6,
+          0.2,
+          0.2
+        ],
+        [
+          0.4,
+          0.4,
+          0.2
+        ],
+        [
+          0.4,
+          0.2,
+          0.4
+        ]
+      ],
+      "lambdas": [
+        0.5,
+        0.7,
+        0.9
+      ],
+      "prunehal_pairs": [
+        [
+          0.7,
+          2
+        ],
+        [
+          0.8,
+          3
+        ],
+        [
+          0.9,
+          4
+        ]
+      ]
+    }
+  },
+  "resource_lock_hash": "e528cb03c44d5ff006f22d58f0e63b2dc47f9e648a632c3439e4edfeb2ee7914",
+  "run_hash": "bc08c29632a3c7d9",
+  "schema_version": 1,
+  "split": "generation",
+  "variant": "rekv"
+}

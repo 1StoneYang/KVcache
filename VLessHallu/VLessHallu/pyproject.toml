@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vlesshallu"
+version = "0.2.0"
+description = "Standalone Qwen3-VL head-wise KV-cache hallucination benchmark"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "accelerate>=1.9",
+  "huggingface-hub>=0.34",
+  "numpy>=2.0",
+  "pillow>=10.4",
+  "safetensors>=0.5",
+  "torch>=2.9,<2.10",
+  "torchvision==0.24.0",
+  "transformers>=4.57,<4.58",
+]
+
+[project.optional-dependencies]
+runtime = [
+  "torchao==0.14.1",
+]
+eval = [
+  "gdown>=5.2",
+  "nltk>=3.9,<4",
+  "patternfork-nosql==3.6",
+  "spacy>=3.8,<4",
+  "tqdm>=4.66",
+]
+test = [
+  "pytest>=8.3",
+]
+
+[project.scripts]
+vlesshallu = "vlesshallu.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["vlesshallu"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

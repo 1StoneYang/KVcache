@@ -1,0 +1,13 @@
+[
+  {
+    "id": 147,
+    "response": "The image depicts an apple orchard with rows of apple trees laden with ripe apples. The apples are predominantly red with some green hues, indicating they are ready for harvest. Some apples have fallen to the ground, creating a carpet of fruit beneath the trees. The orchard appears to be well-maintained, with evenly spaced trees and a clear path between them. The background shows more rows of trees extending into the distance, suggesting a large-scale apple farming operation. The overall scene is vibrant and suggests a bountiful harvest season.",
+    "prompt": "Describe this image.",
+    "image": "/root/autodl-tmp/Method/dataset/AMBER/image/AMBER_147.jpg",
+    "input_tokens": 2005,
+    "visual_tokens": 1980,
+    "output_tokens": 108,
+    "seconds": 3.9056914150714874,
+    "peak_gpu_GiB": 16.224486351013184
+  }
+]

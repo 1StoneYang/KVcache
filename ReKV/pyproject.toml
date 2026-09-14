@@ -1,0 +1,13 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rekv"
+version = "0.1.0"
+description = "Two-level visual KV cache with MM-ShiftKV prefill and decode restore"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["rekv"]

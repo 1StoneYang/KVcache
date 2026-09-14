@@ -1,0 +1,117 @@
+{
+  "results": {
+    "amber_generative": {
+      "alias": "amber_generative",
+      "amber_responses,none": 1,
+      "amber_responses_stderr,none": "N/A"
+    }
+  },
+  "group_subtasks": {
+    "amber_generative": []
+  },
+  "configs": {
+    "amber_generative": {
+      "task": "amber_generative",
+      "dataset_path": "json",
+      "dataset_kwargs": {
+        "data_files": {
+          "test": "/root/autodl-tmp/MM_shiftKV/dataset/AMBER/query_generative.json"
+        }
+      },
+      "test_split": "test",
+      "full_docs": false,
+      "process_results_use_image": false,
+      "doc_to_visual": "<function amber_doc_to_visual at 0x7fb074a21120>",
+      "doc_to_text": "<function amber_doc_to_text at 0x7fb074a215a0>",
+      "doc_to_target": "query",
+      "process_results": "<function amber_process_results at 0x7fb074a21ab0>",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "amber_responses",
+          "aggregation": "<function amber_aggregate_responses at 0x7fb074a21f30>",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_new_tokens": 512,
+        "temperature": 0,
+        "top_p": 1.0,
+        "num_beams": 1,
+        "do_sample": false,
+        "until": [
+          "\n\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": [
+        {
+          "version": 0.0
+        }
+      ],
+      "lmms_eval_specific_kwargs": {
+        "default": {
+          "pre_prompt": "",
+          "post_prompt": ""
+        },
+        "pre_prompt": "",
+        "post_prompt": ""
+      }
+    }
+  },
+  "versions": {
+    "amber_generative": "Yaml"
+  },
+  "n-shot": {
+    "amber_generative": 0
+  },
+  "higher_is_better": {
+    "amber_generative": {
+      "amber_responses": true
+    }
+  },
+  "n-samples": {
+    "amber_generative": {
+      "original": 1004,
+      "effective": 1
+    }
+  },
+  "config": {
+    "model": "qwen2_5_vl",
+    "model_args": "pretrained=/root/autodl-tmp/model/Qwen2.5-VL-7B,use_flash_attention_2=True,device_map=cuda:0",
+    "batch_size": "1",
+    "batch_sizes": [],
+    "device": null,
+    "use_cache": null,
+    "limit": 1.0,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": {
+      "temperature": 0
+    },
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": null,
+  "date": "20260830_211303",
+  "task_hashes": {
+    "amber_generative": "1a618016fb33fb15d1ab57803c4a4afda75cf8ae25f0dd5e7c88d24a91ca5930"
+  },
+  "model_source": "qwen2_5_vl",
+  "model_name": "/root/autodl-tmp/model/Qwen2.5-VL-7B",
+  "model_name_sanitized": "model__Qwen2.5-VL-7B",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": null,
+  "chat_template_sha": null,
+  "start_time": 52187019.44114367,
+  "end_time": 52187032.464425,
+  "total_evaluation_time_seconds": "13.023281328380108"
+}

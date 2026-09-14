@@ -1,0 +1,7 @@
+{
+  "generation_seconds": 3943.7011658102274,
+  "output_tokens": 116649,
+  "peak_gpu_memory_bytes": 17329691648,
+  "sample_count": 1004,
+  "throughput_tokens_per_second": 29.57855960570345
+}

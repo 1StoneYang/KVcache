@@ -1,0 +1,87 @@
+schema_version = 1
+implementation_revision = 2
+seed = 20260806
+
+[paths]
+data_root = "data"
+run_root = "runs"
+lock_file = "resources.lock.json"
+selection_lock = "configs/locked_selection.json"
+
+[model]
+id = "Qwen/Qwen3-VL-8B-Instruct"
+revision = "0c351dd01ed87e9c1b53cbc748cba10e6187ff3b"
+backend = "transformers_eager"
+quantization = "torchao_fp8_per_tensor"
+dtype = "bfloat16"
+device = "cuda"
+attn_implementation = "eager"
+trust_remote_code = false
+
+[decoding]
+strategy = "greedy"
+max_new_tokens = 512
+prompt = "Please describe the image in detail."
+speculative_method = "none"
+
+[mmshift]
+num_proxies = 512
+num_groups = 32
+variance_gamma = 10.0
+mass_threshold = 0.95
+anchor = 1.0
+cache_budget = 512
+
+[myopia]
+text_alpha = 0.5
+cache_budget = 512
+
+[prunehal]
+retention_ratio = 0.9
+max_prunes = 4
+force_step = 2
+vote_fraction = 0.5
+
+[fusion]
+decode = 0.50
+shift = 0.25
+text = 0.25
+
+[kvsmooth]
+first_layer = 3
+last_layer = 34
+fifo_size = 15
+lambda_ref = 0.7
+clip_radius = 0.2
+
+[dataset]
+coco_images_url = "http://images.cocodataset.org/zips/val2014.zip"
+coco_annotations_url = "http://images.cocodataset.org/annotations/annotations_trainval2014.zip"
+chair_repo = "https://github.com/Maxlinn/CHAIR-metric-standalone.git"
+chair_revision = "4087a26211aa2339b9a76307cb8f0321ef691d0a"
+amber_repo = "https://github.com/junyangwang0410/AMBER.git"
+amber_revision = "534babf6bbfcce2e735c26289dedfb21cef3c939"
+amber_drive_id = "1MaCHgtupcZUjf007anNl4_MV0o4DjXvl"
+split_seed = 20260806
+smoke_size = 8
+dev_size = 100
+test_size = 500
+
+[evaluation]
+chair_python = "python"
+amber_python = "python"
+length_unit = "words"
+
+[selection]
+f1_tolerance_pp = 1.0
+minimum_length_ratio = 0.90
+
+[sweep]
+lambdas = [0.5, 0.7, 0.9]
+prunehal_pairs = [[0.7, 2], [0.8, 3], [0.9, 4]]
+fusion_weights = [
+  [0.50, 0.25, 0.25],
+  [0.60, 0.20, 0.20],
+  [0.40, 0.40, 0.20],
+  [0.40, 0.20, 0.40],
+]

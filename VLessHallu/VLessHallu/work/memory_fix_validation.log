@@ -1,0 +1,14 @@
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.50, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  40%|████      | 2/5 [00:00<00:00,  4.98it/s]Loading checkpoint shards:  60%|██████    | 3/5 [00:00<00:00,  3.65it/s]Loading checkpoint shards:  80%|████████  | 4/5 [00:01<00:00,  3.25it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  4.20it/s]Loading checkpoint shards: 100%|██████████| 5/5 [00:01<00:00,  4.00it/s]
+START baseline
+PASS {"variant": "baseline", "visual_tokens": 1980, "final_visual_tokens": 1980, "output_tokens": 124, "seconds": 12.367886923253536, "peak_GiB": 18.350422382354736, "prunes": 0}
+START mmshift
+PASS {"variant": "mmshift", "visual_tokens": 1980, "final_visual_tokens": 512, "output_tokens": 110, "seconds": 10.760185323655605, "peak_GiB": 18.350422382354736, "prunes": 1}
+START myopia_score
+PASS {"variant": "myopia_score", "visual_tokens": 1980, "final_visual_tokens": 512, "output_tokens": 142, "seconds": 13.265954330563545, "peak_GiB": 18.350422382354736, "prunes": 1}
+START prunehal
+PASS {"variant": "prunehal", "visual_tokens": 1980, "final_visual_tokens": 1297, "output_tokens": 140, "seconds": 14.466043025255203, "peak_GiB": 18.350422382354736, "prunes": 4}
+START kvsmooth
+PASS {"variant": "kvsmooth", "visual_tokens": 1980, "final_visual_tokens": 1980, "output_tokens": 88, "seconds": 9.46417174488306, "peak_GiB": 18.350422382354736, "prunes": 0}
+START core4_no_rb
+PASS {"variant": "core4_no_rb", "visual_tokens": 1980, "final_visual_tokens": 1297, "output_tokens": 512, "seconds": 50.25179210305214, "peak_GiB": 18.350422382354736, "prunes": 4}
